@@ -9,4 +9,8 @@ public class User {
 
     private String name;
 
+    public static User createUser() {
+        return new User();
+    }
+
 }
