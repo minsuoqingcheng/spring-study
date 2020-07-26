@@ -1,5 +1,6 @@
 package cn.edu.nju.lc.springstudy.dependencylookup;
 
+import cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.User;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,9 @@ public class ObjectProviderDemo {
         applicationContext.refresh();
 
         lookupByObjectProvider(applicationContext);
+        lookupIfAvailable(applicationContext);
 
+        lookupByStream(applicationContext);
 
         applicationContext.close();
     }
@@ -37,6 +40,17 @@ public class ObjectProviderDemo {
 //            System.out.println(anObjectProvider);
 //        }
         System.out.println(objectProvider.getObject());
+    }
+
+
+    private static void lookupIfAvailable(AnnotationConfigApplicationContext applicationContext) {
+        ObjectProvider<User> objectProvider = applicationContext.getBeanProvider(User.class);
+        System.out.println(objectProvider.getIfAvailable(User::createUser));
+    }
+
+    private static void lookupByStream(AnnotationConfigApplicationContext applicationContext) {
+        ObjectProvider<String> objectProvider = applicationContext.getBeanProvider(String.class);
+        objectProvider.stream().forEach(System.out::println);
     }
 
 }
