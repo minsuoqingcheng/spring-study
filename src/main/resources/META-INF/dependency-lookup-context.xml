@@ -4,13 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.User"
-          primary="true">
+    <bean id="user" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="test"/>
     </bean>
 
-    <bean id="superUser" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.SupperUser" parent="user">
+    <bean id="superUser" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.SupperUser" parent="user"
+          primary="true">
         <property name="address" value="nanjing"/>
     </bean>
 
