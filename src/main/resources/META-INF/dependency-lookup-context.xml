@@ -8,6 +8,12 @@
         <property name="id" value="1"/>
         <property name="name" value="test"/>
         <property name="cities" value="SHANGHAI,NANJING"/>
+        <property name="lifeCities">
+            <list>
+                <value>SHANGHAI</value>
+                <value>NANJING</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="superUser" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.SupperUser" parent="user"

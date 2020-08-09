@@ -3,6 +3,8 @@ package cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain;
 import cn.edu.nju.lc.springstudy.ioc.overview.dependency.enums.City;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class User {
 
@@ -11,6 +13,8 @@ public class User {
     private String name;
 
     private City[] cities;
+
+    private List<City> lifeCities;
 
     public static User createUser() {
         return new User();
