@@ -7,6 +7,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.EncodedResource;
 
+@SuppressWarnings("Duplicates")
 public class BeanDefinitionMergeDemo {
 
     public static void main(String[] args) {
