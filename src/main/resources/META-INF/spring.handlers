@@ -1,0 +1,2 @@
+#定义namespace与namespaceHandler映射
+http\://www.menkor.lc.com/schema/users=cn.edu.nju.lc.springstudy.configurationmatadata.UsersNamespaceHandler

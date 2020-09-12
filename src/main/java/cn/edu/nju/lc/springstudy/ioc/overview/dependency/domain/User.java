@@ -12,6 +12,8 @@ public class User {
 
     private String name;
 
+    private City city;
+
     private City[] cities;
 
     private List<City> lifeCities;
