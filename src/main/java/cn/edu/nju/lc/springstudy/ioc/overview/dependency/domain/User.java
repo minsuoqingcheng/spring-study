@@ -4,6 +4,7 @@ import cn.edu.nju.lc.springstudy.ioc.overview.dependency.enums.City;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Properties;
 
 @Data
 public class User {
@@ -19,6 +20,8 @@ public class User {
     private List<City> lifeCities;
 
     private Company company;
+
+    private Properties context;
 
     public static User createUser() {
         return new User();
