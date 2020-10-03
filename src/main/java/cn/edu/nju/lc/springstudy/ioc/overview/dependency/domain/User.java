@@ -18,6 +18,8 @@ public class User {
 
     private List<City> lifeCities;
 
+    private Company company;
+
     public static User createUser() {
         return new User();
     }
