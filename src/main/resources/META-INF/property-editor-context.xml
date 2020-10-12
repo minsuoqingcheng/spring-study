@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <util:properties id="context">
+        <prop key="id">1</prop>
+        <prop key="name">test</prop>
+    </util:properties>
 
     <bean id="user" class="cn.edu.nju.lc.springstudy.ioc.overview.dependency.domain.User">
         <property name="id" value="1"/>
@@ -20,9 +26,18 @@
                 context=conversion
             </value>
         </property>
+        <!-- Properties类型 -> String -->
+        <property name="contextAsString" ref="context"/>
     </bean>
 
 
     <bean class="cn.edu.nju.lc.springstudy.conversion.CustomPropertyEditorRegistrar"/>
+
+    <!-- Bean的名称必须是conversionService，Spring框架代码中有配置会使用 -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="cn.edu.nju.lc.springstudy.conversion.PropertiesToStringConverter" />
+        </property>
+    </bean>
 
 </beans>

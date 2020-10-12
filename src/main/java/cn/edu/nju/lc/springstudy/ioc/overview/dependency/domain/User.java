@@ -23,6 +23,8 @@ public class User {
 
     private Properties context;
 
+    private String contextAsString;
+
     public static User createUser() {
         return new User();
     }
